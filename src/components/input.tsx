@@ -1,4 +1,4 @@
-import { HTMLInputTypeAttribute, useState } from "react";
+import { HTMLInputTypeAttribute } from "react";
 
 export const CommonInput = (props: {
   type?: HTMLInputTypeAttribute;
@@ -38,27 +38,19 @@ export const ChangeInput = (props: {
 };
 
 export const PropsInput = (props: {
-  num1: number
-  num2: number
-  onKeyDown: (e: React.KeyboardEvent) => void;
-  onChange1: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onChange2: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string | number
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) => {
+  console.log(props.value)
+  // props.value = "꿍디"
+  // console.log(props.value)
   return (
     <>
-    <div className="flex">
       <input
-        value={props.num1}
-        onChange={props.onChange1}
+        value={props.value}
+        onChange={props.onChange}
       />
-      <p>+</p>
-      <input
-        value={props.num2}
-        onKeyDown={props.onKeyDown}
-        onChange={props.onChange2}
-      />
-      <p>=</p>
-    </div>
     </>
   );
-};
+}
+
